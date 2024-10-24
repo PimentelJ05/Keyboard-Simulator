@@ -1,0 +1,10 @@
+/* Defiinindo valores iniciais e padrão para cada navegador */
+
+*{
+    margin: 0;   /* Remove a margem padrão de todos os elementos */
+    padding: 0;  /* Remove o preenchimento (espaçamento interno) padrão de todos os elementos */
+    box-sizing: border-box; /* Faz com que o tamanho total dos elementos (largura e altura) inclua a borda e o espaço interno (padding) */
+    outline: none; /* Remove o contorno de todos os elementos */
+    font-family: "Montserrat", sans-serif;
+}
+

@@ -1,0 +1,131 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #e3f2fd;
+    color: #fff;
+}
+
+.container{
+    width: 780px;
+    border-radius: 20px;
+    padding: 35px 40px;
+    background-color: #000;
+}
+
+.container header{
+    color: #b2b2b2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h2{
+    font-size: 1.6rem;   
+}
+
+header .column{
+    display: flex;
+    align-items: center;
+}
+
+header .column span{
+    font-weight: 500;
+    margin-right: 15px;
+    font-size: 1.19rem;
+}
+
+.volume-slider input{
+    accent-color: #fff;
+}
+
+.keys-check input{
+    width: 60px;
+    height: 30px;
+    appearance: none;
+    border-radius: 30px;
+    background-color: #4b4b4b;
+    cursor: pointer;
+    position: relative; 
+}
+
+/* Vamos trabalhar com psdeudo-elementos */
+/* O que são pseudo-elementos? Pseudo-elementos em CSS são usados para estilizar partes específicas de um elemento sem precisar adicionar código extra no HTM  (before e after)*/
+/* Atribuindo o pseudo-elemento */
+.keys-check input::before{
+    content: "";
+    height: 20px;
+    width: 20px;
+    background-color: #8c8c8c;
+    position: absolute;
+    top: 50%;
+    left: 0.3rem;
+    border-radius: inherit; /*Herdou o border-radius do elemento pai */
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.keys-check input:checked::before{
+    left: 2.1rem;
+    background-color: #fff;
+}
+
+/* Estilizando as teclas do piano */
+.piano-keys{
+    display: flex;
+    margin-top: 40px;
+}
+
+.piano-keys .key{
+    cursor: pointer;
+    list-style: none; /* Remove o estilo da lista */
+    color: #a2a2a2;
+    user-select: none; /* Remove o estilo de seleção do mouse, se comportando como texto e não check-box */
+    position: relative;
+    text-transform: uppercase;
+}
+
+/* Estilizando as teclas brancas */
+.piano-keys .white{
+    width: 70px;
+    height: 230px;
+    background: linear-gradient(#fff 96%, #eee 4%); /* Cria um gradiente de cores */
+    border-radius: 8px; /* criar o aspecto e formato de tecla */
+    border: 1px solid #000;
+}
+
+/* Estilizando as teclas pretas */
+.piano-keys .black{
+    width: 44px;
+    height: 140px;
+    z-index: 2; /* sobrepor na tecla branca */
+    margin: 0 -22px 0 -22px; /* subindo a tecla para a direita */
+    background: linear-gradient(#333, #000); 
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #000;
+}
+
+.piano-keys span{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.13rem;
+}
+
+/* Efeito de clicar nas teclas */
+.piano-keys .white.active{
+    box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.2); /* cria uma sombra ao clicar */
+    background: linear-gradient(#fff 0%, #eee 100%); /* Cria um gradiente de cores ao clicar */
+}
+
+.piano-keys .black.active{
+    box-shadow: inset -5px 5px 10px rgba(255, 255, 255, 0.1); 
+    background: linear-gradient(to bottom #000, #434343); 
+}
+
+.piano-keys .key.hide span{
+    display: none;
+}
+
